@@ -22,7 +22,7 @@ def load_word_list() -> List[str]:
     but the student can later replace it with a file read if they want.
     """
     # A tiny list that is guaranteed to be present for the tests.
-    return ["python", "hangman", "challenge", "intermediate", "program"]
+    return ["python"]
 
 
 def choose_word(word_list: List[str]) -> str:
@@ -31,7 +31,7 @@ def choose_word(word_list: List[str]) -> str:
     The test harness may monkey‑patch ``random.choice`` to make the
     result deterministic.
     """
-    # TODO: implement – see the “Explanation” comment below.
+    # TODO: implement – see the “Explanation” comment above.
     # Hint: use ``random.choice``.
     raise NotImplementedError
 
@@ -41,7 +41,7 @@ def mask_word(secret: str, guessed: List[str]) -> str:
     Return the word with un‑guessed letters replaced by underscores.
     Example: secret='python', guessed=['p','o'] → 'p _ _ _ o _'
     """
-    # TODO: implement – see the “Explanation” comment below.
+    # TODO: implement – see the “Explanation” comment above.
     raise NotImplementedError
 
 
@@ -52,7 +52,7 @@ def is_guess_valid(guess: str, guessed: List[str]) -> Tuple[bool, str]:
     Returns a tuple ``(is_valid, message)`` where ``message`` explains why a guess is
     invalid (empty string if it is valid).
     """
-    # TODO: implement – see the “Explanation” comment below.
+    # TODO: implement – see the “Explanation” comment above.
     raise NotImplementedError
 
 
@@ -66,7 +66,7 @@ def update_state(
     * ``remaining`` – lives left before this guess.
     Returns a tuple ``(new_guessed, new_remaining, was_correct)``.
     """
-    # TODO: implement – see the “Explanation” comment below.
+    # TODO: implement – see the “Explanation” comment above.
     raise NotImplementedError
 
 
@@ -74,7 +74,7 @@ def is_game_won(secret: str, guessed: List[str]) -> bool:
     """
     Return ``True`` if every unique character in ``secret`` appears in ``guessed``.
     """
-    # TODO: implement – see the “Explanation” comment below.
+    # TODO: implement – see the “Explanation” comment above.
     raise NotImplementedError
 
 
@@ -82,7 +82,7 @@ def is_game_lost(remaining: int) -> bool:
     """
     Return ``True`` if the player has run out of lives.
     """
-    # TODO: implement – see the “Explanation” comment below.
+    # TODO: implement – see the “Explanation” comment above.
     raise NotImplementedError
 
 
