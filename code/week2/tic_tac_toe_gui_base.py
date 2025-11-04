@@ -27,9 +27,13 @@ def initialize_board() -> Board:
     * No other data (no strings, no numbers) should be placed yet.
 
     Example return value:
-        [[None, None, None],
-         [None, None, None],
-         [None, None, None]]
+        [[1, 2, 3],
+         [4, 5, 6],
+         [7, 8, 9]]
+
+         board[0][1]
+
+
     """
     # ---------------------  INSERT YOUR CODE  ---------------------
     pass
