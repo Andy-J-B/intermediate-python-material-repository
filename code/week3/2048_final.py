@@ -206,3 +206,89 @@ def move(board: List[List[int]], direction: str) -> Tuple[List[List[int]], int, 
         i += 1
 
     return moved_board, pts, moved
+
+
+def can_move(board: List[List[int]]) -> bool:
+    """
+    Return True if at least one legal move exists (including the
+    possibility of placing a new random tile).
+    """
+    if empty_cells(board):
+        return True
+
+    # try every direction – if any move changes the board we can move
+    dirs = ("Up", "Down", "Left", "Right")
+    i = 0
+    while i < len(dirs):
+        _, _, moved = move(board, dirs[i])
+        if moved:
+            return True
+        i += 1
+    return False
+
+
+# ----------------------------------------------------------------------
+# 4️⃣  SIMPLE TEXT USER INTERFACE
+# ----------------------------------------------------------------------
+def pretty_print(board: List[List[int]]) -> None:
+    """Print the board in a compact grid."""
+    line = "+------" * SIZE + "+"
+    print(line)
+    r = 0
+    while r < SIZE:
+        row = board[r]
+        # each cell is 6 characters wide, centre‑aligned
+        row_str = "|".join(f"{val or '':^6}" for val in row)
+        print("|" + row_str + "|")
+        print(line)
+        r += 1
+
+
+def cli_game() -> None:
+    """
+    Play 2048 from the terminal.
+    Controls:
+        w – up      a – left      s – down      d – right
+        q – quit
+    """
+    board = init_board()
+    score = 0
+
+    while True:
+        pretty_print(board)
+        print(f"Score: {score}")
+
+        if not can_move(board):
+            print("GAME OVER – no more moves!")
+            break
+
+        move_key = input("Your move (w/a/s/d/i/q): ").strip().lower()
+        if move_key == "q":
+            print("Bye!")
+            break
+
+        else:
+            # map keys to the strings expected by `move()`
+            if move_key == "w":
+                direction = "Up"
+            elif move_key == "a":
+                direction = "Left"
+            elif move_key == "s":
+                direction = "Down"
+            elif move_key == "d":
+                direction = "Right"
+            else:
+                print("Invalid key – try again.")
+                continue
+
+            board, pts, moved = move(board, direction)
+
+        if moved:
+            score += pts
+            add_random_tile(board)  # a new tile appears after every successful move
+        else:
+            print("Move didn't change the board – try a different direction.")
+
+
+if __name__ == "__main__":
+    cli_game()
