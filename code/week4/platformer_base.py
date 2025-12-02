@@ -148,32 +148,9 @@ class Player:
         # -----------------------------------------------------------
 
 
-class Block:
-    """
-    A falling block that is affected by gravity.
-    """
-
-    def __init__(self, x: int):
-        """
-        Initialise a block at horizontal position ``x``.
-        The block starts just above the window (y = -BLOCK_HEIGHT).
-        Initialise the vertical speed ``self.vel_y`` to 0.0.
-        Store the rectangle as ``self.rect``.
-        """
-        # --------------------- INSERT YOUR CODE ---------------------
-        raise NotImplementedError
-        # -----------------------------------------------------------
-
-    def update(self):
-        """
-        Apply gravity for the current frame.
-        Use the ``apply_gravity`` helper – it returns the updated rect
-        and the new vertical velocity, which you must store back onto the
-        instance.
-        """
-        # --------------------- INSERT YOUR CODE ---------------------
-        raise NotImplementedError
-        # -----------------------------------------------------------
+# Block class : one argument : x : int
+# One method : update
+# ______________BLOCK CLASS______________
 
 
 # -------------------------------------------------
